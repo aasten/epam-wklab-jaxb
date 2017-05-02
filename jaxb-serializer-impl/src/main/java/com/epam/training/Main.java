@@ -53,11 +53,11 @@ public class Main {
         public static InOut getFromCommandLineArgs(String[] args) {
             Options options = new Options();
 
-            Option input = new Option("i", "input", true, "input file path");
+            Option input = new Option("in", "input", true, "input file path");
             input.setRequired(true);
             options.addOption(input);
 
-            Option output = new Option("o", "output", true, "output file path");
+            Option output = new Option("out", "output", true, "output file path");
             output.setRequired(true);
             options.addOption(output);
 
