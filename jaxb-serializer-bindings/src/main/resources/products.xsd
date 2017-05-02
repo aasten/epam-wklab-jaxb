@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://github.com/aasten/epam-wklab-jaxb"
+    xmlns:tns="https://github.com/aasten/epam-wklab-jaxb"
+    elementFormDefault="qualified" >
+
+    <xs:simpleType name="ProductType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="convenience"/>
+            <xs:enumeration value="shopping"/>
+            <xs:enumeration value="speciality"/>
+            <xs:enumeration value="unsought"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Product">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="price">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger"/>
+                </xs:simpleType>
+            </xs:element>
+            <!--left here commented because AFAIK, it is strongly recommended that price should be decimal-->
+            <!--<xs:element name="price" type="xs:decimal">-->
+            <!--<xs:simpleType>-->
+                <!--<xs:restriction>-->
+                    <!--<xs:minInclusive value="0"/>-->
+                <!--</xs:restriction>-->
+            <!--</xs:simpleType>-->
+            <!--</xs:element>-->
+            <xs:element name="amount">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger"/>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="description">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="4096"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="type" type="tns:ProductType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Products">
+        <xs:sequence>
+            <xs:element name="product" type="tns:Product" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="products" type="tns:Products"/>
+
+</xs:schema>

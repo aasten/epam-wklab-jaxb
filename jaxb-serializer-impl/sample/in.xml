@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<products xmlns="https://github.com/aasten/epam-wklab-jaxb">
+    <product>
+        <name>Orange juice</name>
+        <price>1</price>
+        <amount>10</amount>
+        <description>Fresh, directly squeezed, and so on and so forth.</description>
+        <type>shopping</type>
+    </product>
+    <product>
+        <name>Tesla Model X</name>
+        <price>130000</price>
+        <amount>1</amount>
+        <description>This must come good with orange juice.</description>
+        <type>convenience</type>
+    </product>
+</products>
